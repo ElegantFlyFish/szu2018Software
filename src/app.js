@@ -3,17 +3,12 @@ import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom'
 import { createStore, compose, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
+import Loadable from 'react-loadable'
 import reducer from './reducer'
-
 import AuthRoute from './component/authRoute'
-import Login from './pages/login/login'
-import Register from './pages/register/register'
-import TeacherInfo from './pages/info/teacherInfo'
-import StuInfo from './pages/info/stuInfo'
-
 import { Spin, Icon } from 'antd'
-const loadingIcon = (<Icon type="loading" style = {{ fontSize:25 }} />)
 
+const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />
 const store = createStore(  
   reducer,
   compose(
@@ -21,12 +16,45 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : () => {}
   )
 )
+
+const loading = ()=> <Spin indicator={antIcon} />
+const Login = Loadable(
+  {
+    loader:()=>import('./pages/login/login'),
+    loading:loading,
+    delay:300
+  }
+)
+const Register = Loadable(
+  {
+    loader:()=>import('./pages/register/register'),
+    loading:loading,
+    delay:300
+  }
+)
+
+const TeacherInfo = Loadable(
+  {
+    loader:()=>import('./pages/info/teacherInfo'),
+    loading:loading,
+    delay:300
+  }
+)
+
+const StuInfo = Loadable(
+  {
+    loader:()=>import('./pages/info/stuInfo'),
+    loading:loading,
+    delay:300
+  }
+)
+
 class App extends React.Component{
   render(){
     return (
       <Provider store = { store }>
         <Router>
-            <Spin tip="疯狂加载中..." indicator = { loadingIcon } spinning = { false }>
+            <div>
               <AuthRoute></AuthRoute>
               <Switch>
                 <Route exact path = "/login" component = { Login } />
@@ -35,7 +63,7 @@ class App extends React.Component{
                 <Route path = "/stuinfo" component = { StuInfo } />
                 <Route path = "" component = { Login } />
               </Switch>
-            </Spin>
+            </div>
         </Router>
       </Provider>
     )
