@@ -42,7 +42,7 @@ class TeacherInfo extends React.Component{
           dataIndex: 'profession',
         },
         {
-          title: '工总年限',
+          title: '工作年限',
           dataIndex: 'workingyears',
         },
         {
@@ -78,8 +78,8 @@ class TeacherInfo extends React.Component{
       message.warning('亲，暂无数据可导出！')
       return
     }
-    axios.get('/api/exportExcl',{responseType:'arraybuffer'}).then(res => {
-      const name = '深大成考2018软件班'
+    axios.get('/user/exportExcl',{responseType:'arraybuffer'}).then(res => {
+      const name = '2018深大软件工程（1）班'
       const data = res.data
       const dt=new Date(),dtstr=dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate()
       const blob = new Blob([data], {type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"})
@@ -117,7 +117,7 @@ class TeacherInfo extends React.Component{
         <Table 
         rowKey="_id" 
         columns = { this.state.columns } 
-        pagination = {{ pageSize: 5 }} 
+        pagination = {{ pageSize: 15 }} 
         dataSource = { this.state.data } 
         size="middle" />
       </Card>

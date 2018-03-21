@@ -20,11 +20,6 @@ const formTailLayout = {
   state => state.user
 )
 class StuInfo extends React.Component{
-  componentDidCatch(){
-    this.props.form.setFieldsValue({
-      username:'123123'
-    });
-  }
   render(){
     console.log(this.props)
     const { getFieldDecorator } = this.props.form
@@ -32,7 +27,6 @@ class StuInfo extends React.Component{
     const redirectTo = this.props.redirectTo
     const iconStyle = { color: 'rgba(0,0,0,.25)' }
     //setFieldsValue(this.props)
-
     return (
       <Card title="个人中心(还有待完善......)" style = {{ margin:20 }}>
         {redirectTo && redirectTo !== currentPath ? <Redirect to={this.props.redirectTo}></Redirect> : null}

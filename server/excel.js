@@ -28,11 +28,11 @@ function createExcel(data,res){
     ws.cell(1,(i+1)).string(headerArr[i]);
   }
   
-  console.log(rows,'steps rows -> 2')
+  //console.log(rows,'steps rows -> 2')
   // 3.set cell datatype
   for(let i = 0, l = rows.length; i<l; i++){
       const item = rows[i];
-      console.log(item,'item index'+i)
+      //console.log(item,'item index'+i)
       ws.cell((i+2),1).string(item['stunumber']);
       ws.cell((i+2),2).string(item['realname']);
       ws.cell((i+2),3).string(item['gender'] === 0 ? '女':'男');
