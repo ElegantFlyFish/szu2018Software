@@ -1,0 +1,34 @@
+#components-layout-demo-custom-trigger{
+    height: 100%;
+}
+#components-layout-demo-custom-trigger .trigger {
+    font-size: 18px;
+    line-height: 64px;
+    padding: 0 24px;
+    cursor: pointer;
+    transition: color .3s;
+  }
+  
+  #components-layout-demo-custom-trigger .trigger:hover {
+    color: #1890ff;
+  }
+  
+  #components-layout-demo-custom-trigger .logo{
+    height: 63px;
+    line-height: 63px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+  }
+  #components-layout-demo-custom-trigger .ant-layout-has-sider{
+    height: 100%;
+  }
+  #components-layout-demo-custom-trigger .ant-list-item-meta .ant-list-item-meta-avatar{
+    padding-left: 6px
+  }
+  #components-layout-demo-custom-trigger .ant-list-item-meta .ant-list-item-meta-content .ant-list-item-meta-title{
+    color: #fff;
+  }
+  #components-layout-demo-custom-trigger .ant-list-item-meta .ant-list-item-meta-content .ant-list-item-meta-description{
+    color: #fff;
+  }

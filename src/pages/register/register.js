@@ -56,9 +56,7 @@ class Register extends React.Component{
     const redirectTo = this.props.redirectTo
     return (
       <div style={{ width:'90%', margin:20, marginLeft:'auto',marginRight:'auto' }}>
-        { 
-          redirectTo && redirectTo !== currentPath ? <Redirect to = { redirectTo }></Redirect> : null 
-        }
+        { redirectTo && redirectTo !== currentPath ? <Redirect to = { redirectTo }></Redirect> : null }
         <Card title="2018软件班，新生信息录入">
           <Form onSubmit={this.handleSubmit}>
             <Divider>登录信息</Divider>

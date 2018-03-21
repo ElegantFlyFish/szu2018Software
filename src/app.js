@@ -21,31 +21,34 @@ const loading = ()=> <Spin indicator={antIcon} />
 const Login = Loadable(
   {
     loader:()=>import('./pages/login/login'),
-    loading:loading,
-    delay:300
+    loading:loading
   }
 )
 const Register = Loadable(
   {
     loader:()=>import('./pages/register/register'),
-    loading:loading,
-    delay:300
+    loading:loading
   }
 )
 
 const TeacherInfo = Loadable(
   {
     loader:()=>import('./pages/info/teacherInfo'),
-    loading:loading,
-    delay:300
+    loading:loading
   }
 )
 
 const StuInfo = Loadable(
   {
     loader:()=>import('./pages/info/stuInfo'),
-    loading:loading,
-    delay:300
+    loading:loading
+  }
+)
+
+const Dashboard = Loadable(
+  {
+    loader:()=>import('./pages/dashboard/dashboard'),
+    loading:loading
   }
 )
 
@@ -54,13 +57,14 @@ class App extends React.Component{
     return (
       <Provider store = { store }>
         <Router>
-            <div>
+            <div style={{ height:'100%' }}>
               <AuthRoute></AuthRoute>
               <Switch>
                 <Route exact path = "/login" component = { Login } />
                 <Route path = "/register" component = { Register } />
                 <Route path = "/teacherinfo" component = { TeacherInfo } />
                 <Route path = "/stuinfo" component = { StuInfo } />
+                <Route path = "/dashboard" component = { Dashboard } />
                 <Route path = "" component = { Login } />
               </Switch>
             </div>
